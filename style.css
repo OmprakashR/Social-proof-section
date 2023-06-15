@@ -147,7 +147,7 @@ body {
 }
 
 
-@media (width <= 768px){
+@media (width <= 990px){
     .container { 
         padding: 2em 0;
         width: calc(95% - 2em);
