@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap");
+
+:root {
+  --Very-Dark-Magenta: hsl(300, 43%, 22%);
+  --Soft-Pink: hsl(333, 80%, 67%);
+
+  --Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+  --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+  --White: hsl(0, 0%, 100%);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  font-family: "League Spartan", sans-serif;
+  background: url("./images/bg-pattern-top-desktop.svg") no-repeat -6% top fixed,
+    url("./images/bg-pattern-bottom-desktop.svg") no-repeat 185% bottom fixed;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.card_section {
+  display: grid;
+  gap: 20px;
+  grid-auto-columns: 40% 10% 1fr;
+  grid-template-areas: "one . two";
+}
+.card_div:nth-of-type(1) {
+  grid-area: one;
+}
+.card_div:nth-of-type(2) {
+  grid-area: two;
+}
+.card_div_heading {
+  color: var(--Very-Dark-Magenta);
+  font-weight: 700;
+  line-height: 0.8em;
+  font-size: clamp(2em, 2em + 2vw, 3.5em);
+}
+.card_div_para {
+  margin: 1.5em 0px;
+  line-height: 1.2em;
+  font-size: clamp(0.8em, 0.4em + 1vw, 1.2em);
+  color: var(--Dark-Grayish-Magenta);
+  font-weight: 500;
+}
+.rating-divs {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 1em;
+  margin-top: 2em; font-size: 1em;
+}
+
+.usercards {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.rating {
+  display: grid;
+  grid-template-columns: 100px auto;
+
+  background-color: var(--Light-Grayish-Magenta);
+  padding: 0.8em;
+  font-weight: 700;
+  color: var(--Very-Dark-Magenta);
+  border-radius: 5px;
+  column-gap: 0.5em;
+}
+
+.rating:nth-of-type(1) {
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+.rating:nth-of-type(2) {
+  grid-column-start: 2;
+  grid-column-end: 9;
+}
+
+.rating:nth-of-type(3) {
+  grid-column-start: 3;
+  grid-column-end: 10;
+}
+.usercards {
+  margin-top: 1.5em;
+}
+.users {
+  background-color: var(--Very-Dark-Magenta);
+  border-radius: 10px;
+  padding: 1.5em;
+  display: grid;
+}
+.users:nth-of-type(1) {
+  grid-column-start: 1;
+  grid-column-end: 10;
+  grid-row-start: 1;
+  grid-row-end: 8;
+}
+
+.users:nth-of-type(2) {
+  grid-column-start: 11;
+  grid-column-end: 20;
+  grid-row-start: 2;
+  grid-row-end: 9;
+}
+.users:nth-of-type(3) {
+  grid-column-start: 21;
+  grid-column-end: 30;
+  grid-row-start: 3;
+  grid-row-end: 10;
+}
+.user-profile {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 50px 1fr;
+}
+.user-profile-img img {
+  border-radius: calc(100px / 2);
+}
+.user-profile-name h2 {
+  font-size: 1em;
+  color: var(--White);
+}
+.user-profile-name span {
+  color: var(--Soft-Pink);
+}
+.user-data {
+  font-size: 0.9em;
+  line-height: 1.2em;
+  padding: 1em 0em;
+  font-size: 1em;
+  color: var(--White);
+}
+
+
+@media (width <= 768px){
+    .container { 
+        padding: 2em 0;
+        width: calc(95% - 2em);
+    }
+    .card_section{
+        grid-auto-columns: 1fr 0 1fr;
+        grid-template-areas: 
+        "one "
+    
+         "two";
+    }
+    .card_div:nth-of-type(1) {
+        grid-area: one;
+        text-align: center;
+    }   
+    .rating-divs{
+        margin-top: 0px;
+    }
+    .rating:nth-of-type(1),.rating:nth-of-type(2),.rating:nth-of-type(3){
+        grid-column-start: 1;
+        grid-column-end: 11;
+    }
+    .rating{
+        grid-template-rows: 1fr;
+        grid-template-columns: 100%;
+       
+        text-align: center;
+        gap: 10px;
+    }
+    .usercards{ 
+        grid-template-rows: repeat(4, 1fr);
+        row-gap: 1em;
+    }
+
+    .users:nth-of-type(1){
+        grid-column-start: 1;
+        grid-column-end: 31;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    } .users:nth-of-type(2){
+        grid-column-start: 1;
+        grid-column-end: 31;
+        grid-row-start: 3;
+        grid-row-end: 6;
+    }
+    .users:nth-of-type(3){
+        grid-column-start: 1;
+        grid-column-end: 31;
+        grid-row-start: 6;
+        grid-row-end: 10;
+    }
+}
